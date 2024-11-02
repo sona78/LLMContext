@@ -3,11 +3,8 @@
   "name": "Chrome extension",
   "version": "1.0.0",
   "action": { "default_popup": "index.html" },
-  "permissions": [
-    "activeTab",
-    "scripting"
-  ],
+  "permissions": ["activeTab", "scripting"],
   "background": {
-    "service_worker": "scraping.ts"
+    "service_worker": "scraping.js"
   }
 }
