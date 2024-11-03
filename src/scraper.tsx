@@ -28,7 +28,7 @@ const aiSites = [
     title: "Claude",
     logo: "https://blog.analystonfire.com/wp-content/uploads/2023/03/Claude.jpg",
   },
-]
+];
 
 function Scraper() {
   // const [scrapedData, setScrapedData] = useState(null);
@@ -105,8 +105,10 @@ function Scraper() {
 
   return (
     <div className="scraper-container">
-      <h4 className="text-sm font-medium leading-none" style={{ color: "white"}}>Current Sites</h4>
-      <div className="ai-sites-display" style={{color: "white"}}>
+      <h4 className="text-sm font-medium leading-none" style={{ color: "white" }}>
+        Current Sites
+      </h4>
+      <div className="ai-sites-display" style={{ color: "white" }}>
         {aiSites.map((site, index) => (
           <div key={index} className="site-item">
             {site.title}
@@ -115,7 +117,7 @@ function Scraper() {
       </div>
       <div className="button-container">
         <Button className="glow set-page-button" onClick={handleScrape}>
-          Set Page
+          Extract Page
         </Button>
       </div>
     </div>

@@ -6,7 +6,24 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
-  background: radial-gradient(farthest-corner at 50% 50%, #320254 0%, black 100%);
+  /* 320254 */
+  background: radial-gradient(farthest-corner at 50% 50%, #000000 0%, black 100%);
+}
+
+.icon {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  border: none;
+}
+.icon:hover {
+  background-color: #4b0082;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .name {

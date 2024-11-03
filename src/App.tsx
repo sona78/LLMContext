@@ -6,7 +6,9 @@ import { useState, useEffect, useRef } from "react";
 import Prompt from "./Prompt";
 import Scraper from "./scraper";
 import Home from "./Home";
-import About from "./About"
+import About from "./About";
+import logo from "./assets/logo.svg";
+import { HouseDoorFill, Copy, PencilSquare } from "react-bootstrap-icons";
 
 function App() {
   const [activeComponent, setActiveComponent] = useState("home");
@@ -36,7 +38,7 @@ function App() {
   //     alert("Could not access the camera. Please check your permissions.");
   //   }
   // };
- 
+
   // useEffect(() => {
   //   const promptUserForLogin = () => {
   //     alert("Click 'Login' to access");
@@ -50,16 +52,22 @@ function App() {
 
   return (
     <div className="App">
-      <div style={{ padding: "10px" }}>
-        <h1 className="name">MY.AI</h1>
-      </div>
-      {activeComponent !== "home" && activeComponent !== "learn" && activeComponent !== "about" && activeComponent !== "scraper" && (
-        <nav>
-          <Button className="glow" onClick={() => setActiveComponent("scraper")}>
-            Scraper
+      {activeComponent !== "home" && activeComponent !== "faceLogin" && (
+        <nav className="nav">
+          <Button className="icon" onClick={() => setActiveComponent("home")}>
+            <HouseDoorFill />
+          </Button>
+          <Button className="icon" onClick={() => setActiveComponent("scraper")}>
+            <Copy />
+          </Button>
+          <Button className="icon" onClick={() => setActiveComponent("prompt")}>
+            <PencilSquare />
           </Button>
         </nav>
       )}
+      <div style={{ padding: "10px" }}>
+        <img src={logo} />
+      </div>
       {activeComponent === "home" && <Home setActiveComponent={setActiveComponent} />}
       {activeComponent === "prompt" && <Prompt />}
       {activeComponent === "scraper" && <Scraper />}
