@@ -1,6 +1,6 @@
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message === "scrape") {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.tabs.query({ currentWindow: true }, (tabs) => {
       chrome.scripting.executeScript(
         {
           target: { tabId: tabs[0].id },
@@ -20,7 +20,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
       );
     });
   } else if (message === "drop") {
-    chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    chrome.tabs.query({ currentWindow: true }, (tabs) => {
       chrome.scripting.executeScript(
         {
           target: { tabId: tabs[0].id },

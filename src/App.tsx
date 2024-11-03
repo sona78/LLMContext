@@ -1,8 +1,8 @@
-import './App.css';
-import { useState } from 'react';
+import "./App.css";
+import { useState } from "react";
 // import FaceLogin from './utils/FaceLogin';
-import Prompt from './utils/Prompt';
-import Scraper from './scraper';
+import Prompt from "./utils/Prompt";
+import Scraper from "./scraper";
 
 function App() {
   const [activeComponent, setActiveComponent] = useState("prompt"); // Default to Prompt
