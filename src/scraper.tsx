@@ -9,7 +9,7 @@
 // import { Separator } from "@/components/ui/separator"
 import Button from "react-bootstrap/Button";
 
-// const LOCAL_HOST = "http://localhost:3000";
+// const LOCAL_HOST = "http://localhost:8000";
 
 function Scraper() {
   // const [scrapedData, setScrapedData] = useState(null);

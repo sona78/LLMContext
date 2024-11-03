@@ -1,6 +1,9 @@
 import { useState } from "react";
+import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Response from "./Response";
+
+const LOCAL_HOST = "http://localhost:8000";
 
 interface Message {
   text: string;
@@ -19,20 +22,15 @@ const Prompt: React.FC = () => {
     setMessages((prevMessages) => [...prevMessages, { text: prompt, sender: "user" }]);
 
     try {
-      const response = await fetch("insert-api", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ prompt }),
-      });
+      const response = await axios.get(`${LOCAL_HOST}/get_context`,
+        { params: { user_id : 1, question : prompt} }
+      );
 
-      const data = await response.json();
       setPrompt("");
 
-      setBackendResponse(data.response);
+      setBackendResponse(response.data);
 
-      setMessages((prevMessages) => [...prevMessages, { text: data.response, sender: "backend" }]);
+      setMessages((prevMessages) => [...prevMessages, { text: response.data, sender: "backend" }]);
 
       setPrompt("");
     } catch (error) {
