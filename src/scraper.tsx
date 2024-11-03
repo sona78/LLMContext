@@ -80,7 +80,7 @@ function Scraper() {
       return (
         <>
         {/* <div className="space-y-1"> */}
-            <h4 className="text-sm font-medium leading-none">Load</h4>
+            <h4 className="text-sm font-medium leading-none"> </h4>
             <button onClick={handleScrape}>Scrape Page</button>
         {/* </div> */}
         </>
