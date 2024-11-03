@@ -6,6 +6,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
           target: { tabId: tabs[0].id },
           function: () => {
             const title = document.title;
+
             const prompts = Array.from(document.querySelectorAll("div.whitespace-pre-wrap")).map(
               (d) => d.textContent
             );
