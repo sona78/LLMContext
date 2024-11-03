@@ -2,17 +2,15 @@ import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import "./Home.css";
 import Display from "./Display";
-import { useRef, useState } from "react";
+import {useState } from "react";
 import About from "./About";
 
 const Home = ({ setActiveComponent }: { setActiveComponent: any }) => {
   const [stream, setStream] = useState<MediaStream | null>(null);
   const [showDisplay, setShowDisplay] = useState(false); // State to control display visibility
-  const [message, setMessage] = useState<string | null>(null);
   const [loading, setLoading] = useState(false); // State for loading
   const [inAboutPage, setInAboutPage] = useState(false); // State to track if we're on the About page
 
-  const videoRef = useRef<HTMLVideoElement | null>(null);
   const handleFaceLogin = async () => {
     try {
       setShowDisplay(true); // Show the Display component
@@ -37,7 +35,6 @@ const Home = ({ setActiveComponent }: { setActiveComponent: any }) => {
 
     console.log("Facial recognition process would start here");
     setLoading(true);
-    setMessage("Success");
     setTimeout(() => {
       setLoading(false); // Hide loading indicator
       setActiveComponent("prompt");
