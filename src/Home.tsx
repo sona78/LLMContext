@@ -2,7 +2,7 @@ import Button from "react-bootstrap/Button";
 import Spinner from "react-bootstrap/Spinner";
 import "./Home.css";
 import Display from "./Display";
-import {useState } from "react";
+import { useState } from "react";
 import About from "./About";
 
 const Home = ({ setActiveComponent }: { setActiveComponent: any }) => {
@@ -15,8 +15,8 @@ const Home = ({ setActiveComponent }: { setActiveComponent: any }) => {
     try {
       setShowDisplay(true); // Show the Display component
       // setActiveComponent("prompt");
-      const permissionStatus = await navigator.permissions.query({ name: 'camera' as any });
-      if (permissionStatus.state === 'granted' || permissionStatus.state === 'prompt') {
+      const permissionStatus = await navigator.permissions.query({ name: "camera" as any });
+      if (permissionStatus.state === "granted" || permissionStatus.state === "prompt") {
         const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
         setStream(mediaStream); // Set the stream to state
         recognizeFace();
@@ -32,7 +32,6 @@ const Home = ({ setActiveComponent }: { setActiveComponent: any }) => {
   };
 
   const recognizeFace = async () => {
-
     console.log("Facial recognition process would start here");
     setLoading(true);
     setTimeout(() => {
@@ -44,7 +43,7 @@ const Home = ({ setActiveComponent }: { setActiveComponent: any }) => {
   const handleLearnMore = async () => {
     setInAboutPage(true);
     setActiveComponent("about");
-  }
+  };
 
   const handleBack = () => {
     setInAboutPage(false);

@@ -52,7 +52,7 @@ function App() {
 
   return (
     <div className="App">
-      {activeComponent !== "home" && activeComponent !== "faceLogin" && (
+      {activeComponent !== "faceLogin" && activeComponent !== "about" && (
         <nav className="nav">
           <Button className="icon" onClick={() => setActiveComponent("home")}>
             <HouseDoorFill />
