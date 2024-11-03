@@ -10,7 +10,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
               (d) => d.textContent
             );
             const responses = Array.from(document.querySelectorAll("p")).map((h) => h.textContent);
-
             return { title, prompts, responses };
           },
         },
@@ -19,7 +18,6 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         }
       );
     });
-
     return true;
   }
 });

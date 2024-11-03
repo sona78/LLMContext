@@ -3,13 +3,11 @@ import { useEffect, useRef } from 'react';
 import "./FaceLogin.css"
 // const rekognition = new AWS.Rekognition();
 
-
 const FaceLogin: React.FC = () => {
 const videoRef = useRef<HTMLVideoElement | null>(null);
 
   const handleFaceLogin = async () => {
     try {
-        // Access the camera
         const stream = await navigator.mediaDevices.getUserMedia({video: true});
         if (videoRef.current) {
             videoRef.current.srcObject = stream;
@@ -37,10 +35,10 @@ const videoRef = useRef<HTMLVideoElement | null>(null);
 
   return (
     <div className="main-container">
-      <button onClick={handleFaceLogin} style={{ padding: '20px' }}>
+      <button onClick={handleFaceLogin} style={{ padding: '10px' }}>
         Scan Face
       </button>
-      <div style={{marginTop: '20px'}}>
+      <div style={{marginTop: '10px'}}>
         <video ref={videoRef} style={{ 
         }}
         autoPlay

@@ -14,7 +14,6 @@ const Prompt: React.FC = () => {
     e.preventDefault();
     if(!prompt) return; 
 
-    // users message / prompt
     setMessages((prevMessages) => [
       ...prevMessages,  
       {text:prompt, sender:'user'}
@@ -32,7 +31,6 @@ const Prompt: React.FC = () => {
 
       const data = await response.json();
 
-      // add the response from the backend
       setMessages((prevMessages) => [
           ...prevMessages, 
           { text: data.response, 
@@ -50,7 +48,7 @@ const Prompt: React.FC = () => {
       <div style={{ maxHeight: '400px', overflowY: 'scroll', padding: '10px' }}>
         {messages.map((msg, index) => (
           <div key={index} style={{ textAlign: msg.sender === 'backend' ? 'left' : 'right' }}>
-            <strong>{msg.sender === 'backend' ? 'Fine-tuned' : ''}:</strong> {msg.text}
+            <strong>{msg.sender === 'backend' ? 'Fine-tuned' : 'Prompt'}:</strong> {msg.text}
           </div>
         ))}
       </div>

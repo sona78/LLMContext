@@ -1,23 +1,31 @@
-import './App.css'
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import FaceLogin from './utils/FaceLogin';
-import Prompt from './utils/Prompt'
-import "./App.css";
-import Scraper from "./scraper";
+import './App.css';
+import { useState } from 'react';
+// import FaceLogin from './utils/FaceLogin';
+import Prompt from './utils/Prompt';
+import Scraper from './scraper';
 
 function App() {
+  const [activeComponent, setActiveComponent] = useState("prompt"); // Default to Prompt
+  // const showFaceLogin = () => setActiveComponent("faceLogin");
+  const showPrompt = () => setActiveComponent("prompt");
+  const showScraper = () => setActiveComponent("scraper");
+
   return (
-    <>
+    <div className="App">
       <h1>You.AI</h1>
-      <Router>
-        <Routes>
-          <Route path="/" element={<Navigate to="/scraper"/>} /> {/* Redirect to FaceLogin */}
-          <Route path="/face-login" element={<FaceLogin />} /> FaceLogin route
-          <Route path="/prompt" element={<Prompt />} /> Example additional route
-          <Route path="/scraper" element={<Scraper />} /> Example additional route
-        </Routes>
-      </Router>
-    </>
+      {}
+      <nav>
+        {/* <button onClick={showFaceLogin}>Face Login</button> */}
+        <button onClick={showPrompt}>Prompt</button>
+        <button onClick={showScraper}>Scraper</button>
+      </nav>
+
+      {}
+      {/* {activeComponent === "faceLogin" && <FaceLogin />} */}
+      {activeComponent === "prompt" && <Prompt />}
+      {activeComponent === "scraper" && <Scraper />}
+    </div>
   );
 }
+
 export default App;
