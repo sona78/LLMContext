@@ -5,7 +5,20 @@
   "action": { "default_popup": "index.html" },
   "permissions": [
     "activeTab",
-    "scripting"
+    "scripting",
+    "contentSettings",
+    "tabs",
+    "camera",
+    "storage"
+  ],
+  "host_permissions": [
+    "<all_urls>" 
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["*"], 
+      "matches": ["<all_urls>"]
+    }
   ],
   "background": {
     "service_worker": "scraping.js"
