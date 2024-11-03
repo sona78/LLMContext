@@ -7,12 +7,14 @@ import Button from "react-bootstrap/Button";
 import { useEffect, useRef } from "react";
 import Prompt from "./Prompt";
 import Scraper from "./scraper";
+import Home from "./Home";
 
 function App() {
-  const [activeComponent, setActiveComponent] = useState("faceLogin"); // Default to Prompt
+  const [activeComponent, setActiveComponent] = useState("home"); // Default to Prompt
   // const showFaceLogin = () => setActiveComponent("faceLogin");
   const showPrompt = () => setActiveComponent("prompt");
   const showScraper = () => setActiveComponent("scraper");
+  const showHome = () => setActiveComponent("home");
 
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const handleFaceLogin = async () => {
@@ -72,16 +74,25 @@ function App() {
 
   return (
     <div className="App">
-      <h1>You.AI</h1>
+      <div style={{ padding: "10px" }}>
+        <h1 className="name">You.AI</h1>
+      </div>
       {}
-      <nav>
-        <Button onClick={handleFaceLogin}>Face Login</Button>
-        <Button onClick={showPrompt}>Prompt</Button>
-        <Button onClick={showScraper}>Scraper</Button>
-      </nav>
+      {activeComponent != "home" && activeComponent != "learn" && (
+        <nav>
+          {/* <Button onClick={handleFaceLogin}>Face Login</Button> */}
+          <Button className="glow" onClick={showPrompt}>
+            Prompt
+          </Button>
+          <Button className="glow" onClick={showScraper}>
+            Scraper
+          </Button>
+        </nav>
+      )}
 
       {}
       {/* {activeComponent === "faceLogin" && <FaceLogin />} */}
+      {activeComponent === "home" && <Home setActiveComponent={setActiveComponent} />}
       {activeComponent === "prompt" && <Prompt />}
       {activeComponent === "scraper" && <Scraper />}
     </div>

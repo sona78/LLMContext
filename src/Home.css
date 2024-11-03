@@ -1,5 +1,16 @@
 .inline {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+.glow {
+  background-image: radial-gradient(at 50% 50%, #a47cf3 0%, #683fea 100%);
+  border: none;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+  margin: 10px;
+}
+
+.glow:hover {
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);
+  background-image: radial-gradient(at 50% 50%, #683fea 0%, #683fea 100%);
 }

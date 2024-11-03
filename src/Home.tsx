@@ -1,17 +1,17 @@
 import Button from "react-bootstrap/Button";
+import "./Home.css";
 
-const Home: React.FC = () => {
+const Home = ({ setActiveComponent }: { setActiveComponent: any }) => {
   return (
-    <div style={{ padding: '40px' }}>
-      <div style={{ maxHeight: '400px', overflowY: 'scroll', padding: '10px' }}>
-
-      </div>
+    <>
       <div className="center">
-        <Button>Sign In!</Button>
-        <Button>Learn More</Button>
+        <Button className="glow" onClick={() => setActiveComponent("prompt")}>
+          Sign In!
+        </Button>
+        <Button className="glow">Learn More</Button>
       </div>
-    </div>
+    </>
   );
 };
 
-export default Home
+export default Home;
