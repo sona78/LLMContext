@@ -1,7 +1,18 @@
 .inline {
   display: flex;
   justify-content: space-between;
+  background: radial-gradient(farthest-corner at 50% 50%, #320254 0%, black 100%);
 }
+
+/* .center {
+  min-width: 350px;
+  max-width: 1280px;
+  min-height: 500px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  background: radial-gradient(farthest-corner at 50% 50%, #320254 0%, black 100%);
+} */
 
 .glow {
   background-image: radial-gradient(at 50% 50%, #a47cf3 0%, #683fea 100%);

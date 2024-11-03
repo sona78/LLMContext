@@ -2,7 +2,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Button from "react-bootstrap/Button";
 // import FaceLogin from './utils/FaceLogin';
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import Prompt from "./Prompt";
 import Scraper from "./scraper";
 import Home from "./Home";

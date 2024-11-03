@@ -8,7 +8,6 @@
 // });
 // import { Separator } from "@/components/ui/separator"
 import Button from "react-bootstrap/Button";
-import { useState } from "react";
 // const LOCAL_HOST = "http://localhost:3000";
 
 const aiSites = [
@@ -33,11 +32,11 @@ const aiSites = [
 function Scraper() {
   // const [scrapedData, setScrapedData] = useState(null);
   // const [scrapedData, setScrapedData] = useState({ title: "", prompts: [], responses: [] });
-  const [currentPages, setCurrentPages] = useState<{ title: string; logo: string }[]>([]);
+  // const [currentPages, setCurrentPages] = useState<{ title: string; logo: string }[]>([]);
 
-  const handleAddPage = (title: string, logo: string) => {
-    setCurrentPages((prevPages) => [...prevPages, { title, logo }]);
-  };
+  // const handleAddPage = (title: string, logo: string) => {
+  //   setCurrentPages((prevPages) => [...prevPages, { title, logo }]);
+  // };
 
   const mixArrays = (arr1: any[], arr2: any[]) => {
     arr1 = labelArray(arr1, true);
