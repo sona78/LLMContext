@@ -30,6 +30,8 @@ const Prompt: React.FC = () => {
 
       setBackendResponse(response.data);
 
+      handleDrop(response.data);
+
       setMessages((prevMessages) => [...prevMessages, { text: response.data, sender: "backend" }]);
 
       setPrompt("");
@@ -40,8 +42,8 @@ const Prompt: React.FC = () => {
     }
   };
 
-  const handleDrop = () => {
-    chrome.runtime.sendMessage("drop", (response: any) => {
+  const handleDrop = (context: string) => {
+    chrome.runtime.sendMessage(`context: ${context}`, (response: any) => {
       console.log(response);
     });
   };
@@ -64,13 +66,9 @@ const Prompt: React.FC = () => {
           className="prompt-input"
         />
         <Button type="submit" className="glow">
-          Done
+          Retrieve Context
         </Button>
       </form>
-
-      <Button onClick={handleDrop} className="glow">
-        Insert Context
-      </Button>
 
       {backendResponse && <Response message={backendResponse} />}
     </div>
