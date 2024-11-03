@@ -1,4 +1,4 @@
-const LOCAL_HOST = "http://localhost:3000";
+const LOCAL_HOST = "http://localhost:8000";
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
   if (message === "scrape") {
