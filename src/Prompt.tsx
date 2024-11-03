@@ -44,14 +44,14 @@ const Prompt: React.FC = () => {
 
   return (
     <div style={{ padding: "40px" }}>
-      <div style={{ maxHeight: "400px", padding: "10px" }}>
+      <div style={{ maxHeight: "400px", padding: "10px", color: "white" }}>
         {messages.map((msg, index) => (
           <div key={index} style={{ textAlign: msg.sender === "backend" ? "left" : "right" }}>
             <strong>{msg.sender === "backend" ? "Context" : "Prompt"}:</strong> {msg.text}
           </div>
         ))}
       </div>
-      <form onSubmit={handleInput} style={{ display: "flex", marginTop: "10px" }}>
+      <form onSubmit={handleInput} style={{ display: "flex", marginTop: "10px"}}>
         <input
           type="text"
           value={prompt}

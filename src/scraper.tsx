@@ -8,12 +8,37 @@
 // });
 // import { Separator } from "@/components/ui/separator"
 import Button from "react-bootstrap/Button";
-
+import { useState } from "react";
 // const LOCAL_HOST = "http://localhost:3000";
+
+const aiSites = [
+  {
+    title: "ChatGPT",
+    logo: "https://swipefile.com/do-a-chatgpt-swot-analysis-on-your-company/chatgpt-logo-chat-gpt/",
+  },
+  {
+    title: "Perplexity AI",
+    logo: "https://perplexity.ai/static/media/perplexity-logo.439a59c5.svg",
+  },
+  {
+    title: "Google Bard",
+    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/Bard_Logo.svg/1200px-Bard_Logo.svg.png",
+  },
+  {
+    title: "Claude",
+    logo: "https://blog.analystonfire.com/wp-content/uploads/2023/03/Claude.jpg",
+  },
+]
 
 function Scraper() {
   // const [scrapedData, setScrapedData] = useState(null);
   // const [scrapedData, setScrapedData] = useState({ title: "", prompts: [], responses: [] });
+  const [currentPages, setCurrentPages] = useState<{ title: string; logo: string }[]>([]);
+
+  const handleAddPage = (title: string, logo: string) => {
+    setCurrentPages((prevPages) => [...prevPages, { title, logo }]);
+  };
+
   const mixArrays = (arr1: any[], arr2: any[]) => {
     arr1 = labelArray(arr1, true);
     arr2 = labelArray(arr2, false);
@@ -79,14 +104,21 @@ function Scraper() {
   };
 
   return (
-    <>
-      {/* <div className="space-y-1"> */}
-      <h4 className="text-sm font-medium leading-none"> </h4>
-      <Button className="glow" onClick={handleScrape}>
-        Scrape Page
-      </Button>
-      {/* </div> */}
-    </>
+    <div className="scraper-container">
+      <h4 className="text-sm font-medium leading-none" style={{ color: "white"}}>Current Sites</h4>
+      <div className="ai-sites-display" style={{color: "white"}}>
+        {aiSites.map((site, index) => (
+          <div key={index} className="site-item">
+            {site.title}
+          </div>
+        ))}
+      </div>
+      <div className="button-container">
+        <Button className="glow set-page-button" onClick={handleScrape}>
+          Set Page
+        </Button>
+      </div>
+    </div>
   );
 }
 

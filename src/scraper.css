@@ -7,4 +7,49 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     gap: 10px; 
+    padding: 20px;
 }
+
+.scraper-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    min-height: 100vh; /* Full viewport height */
+    position: relative; /* For positioning the button */
+  }
+  
+  .ai-sites-display {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; 
+    margin-bottom: auto; 
+    color: white;
+    padding: 10px;
+  }
+  
+  .site-item {
+    display: flex;
+    align-items: center;
+    margin: 10px; /* Space between items */
+    cursor: pointer; /* Indicate clickable items */
+    color: white
+  }
+  
+  .site-logo {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+    margin-right: 10px; /* Space between logo and title */
+  }
+  
+  .site-title {
+    font-size: 16px; /* Adjust font size as needed */
+    color: white
+  }
+  
+  .set-page-button {
+    margin-top: 20px; /* Space above the button */
+    position: absolute; /* Position the button */
+    bottom: 20px; /* Distance from the bottom */
+  }
+  
