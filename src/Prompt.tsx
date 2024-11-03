@@ -22,9 +22,9 @@ const Prompt: React.FC = () => {
     setMessages((prevMessages) => [...prevMessages, { text: prompt, sender: "user" }]);
 
     try {
-      const response = await axios.get(`${LOCAL_HOST}/get_context`,
-        { params: { user_id : 1, question : prompt} }
-      );
+      const response = await axios.get(`${LOCAL_HOST}/get_context`, {
+        params: { user_id: 1, question: prompt },
+      });
 
       setPrompt("");
 
@@ -40,6 +40,12 @@ const Prompt: React.FC = () => {
     }
   };
 
+  const handleDrop = () => {
+    chrome.runtime.sendMessage("drop", (response: any) => {
+      console.log(response);
+    });
+  };
+
   return (
     <div style={{ padding: "40px" }}>
       <div style={{ maxHeight: "400px", padding: "10px", color: "white" }}>
@@ -49,7 +55,7 @@ const Prompt: React.FC = () => {
           </div>
         ))}
       </div>
-      <form onSubmit={handleInput} style={{ display: "flex", marginTop: "10px"}}>
+      <form onSubmit={handleInput} style={{ display: "flex", marginTop: "10px" }}>
         <input
           type="text"
           value={prompt}
@@ -61,6 +67,10 @@ const Prompt: React.FC = () => {
           Done
         </Button>
       </form>
+
+      <Button onClick={handleDrop} className="glow">
+        Insert Context
+      </Button>
 
       {backendResponse && <Response message={backendResponse} />}
     </div>
