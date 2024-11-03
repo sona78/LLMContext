@@ -1,12 +1,14 @@
 // import {useState} from 'react'
 // import { useState } from "react";
 // import OpenAI from "openai";
+// import axios from "axios";
 // const openai = new OpenAI({
 //   apiKey:
-//
 //   dangerouslyAllowBrowser: true,
 // });
 // import { Separator } from "@/components/ui/separator"
+
+// const LOCAL_HOST = "http://localhost:3000";
 
 function Scraper() {
     // const [scrapedData, setScrapedData] = useState(null);
@@ -60,7 +62,18 @@ function Scraper() {
         //     max_tokens: 400,
         //     temperature: 1.3,
         //   })
-        //   .then((response) => console.log(response));
+         //   .then((response: any) => {
+    //     console.log(response.choices[0].message.content);
+    //     // axios
+    //     //   .post(`${LOCAL_HOST}/post_context?user={user_id}&url={url}&context={context}`)
+    //     //   .then((response) => {
+    //     //     console.log(response);
+    //     //   })
+    //     //   .catch((error) => {
+    //     //     console.log(error);
+    //     //   });
+    //   });
+
         console.log(context);
       };
       
@@ -72,6 +85,7 @@ function Scraper() {
         {/* </div> */}
         </>
       );
-    }
+    
+}
 
 export default Scraper
