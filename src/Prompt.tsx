@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
+import Response from "./Response";
 
 interface Message {
   text: string;
@@ -9,6 +10,7 @@ interface Message {
 const Prompt: React.FC = () => {
   const [prompt, setPrompt] = useState<string>("");
   const [messages, setMessages] = useState<Message[]>([]);
+  const [backendResponse, setBackendResponse] = useState<string>("");
 
   const handleInput = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,12 +28,17 @@ const Prompt: React.FC = () => {
       });
 
       const data = await response.json();
+      setPrompt("");
+
+      setBackendResponse(data.response);
 
       setMessages((prevMessages) => [...prevMessages, { text: data.response, sender: "backend" }]);
 
       setPrompt("");
     } catch (error) {
+      setPrompt("");
       console.error("Error fetching data:", error);
+      console.error("Error fetching response");
     }
   };
 
@@ -40,7 +47,7 @@ const Prompt: React.FC = () => {
       <div style={{ maxHeight: "400px", padding: "10px" }}>
         {messages.map((msg, index) => (
           <div key={index} style={{ textAlign: msg.sender === "backend" ? "left" : "right" }}>
-            <strong>{msg.sender === "backend" ? "Fine-tuned" : "Prompt"}:</strong> {msg.text}
+            <strong>{msg.sender === "backend" ? "Context" : "Prompt"}:</strong> {msg.text}
           </div>
         ))}
       </div>
@@ -56,6 +63,8 @@ const Prompt: React.FC = () => {
           Done
         </Button>
       </form>
+
+      {backendResponse && <Response message={backendResponse} />}
     </div>
   );
 };

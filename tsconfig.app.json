@@ -22,5 +22,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-  "include": ["src", "public/scraping.js"]
+  "include": ["src", "public/scraping.js", "dist/popup.js"]
 }
