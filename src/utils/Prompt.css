@@ -1,0 +1,27 @@
+/* App.css or a dedicated CSS file */
+.prompt-input {
+    flex: 1;
+    padding: 20px 20px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    outline: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 16px;
+    color: black
+  }
+  
+  .prompt-button {
+    padding: 10px 20px;
+    margin-left: 10px;
+    border-radius: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .prompt-button:hover {
+    background-color: #0056b3;
+  }
+  
