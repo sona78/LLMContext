@@ -1,11 +1,13 @@
 // import { useState } from "react";
 // import OpenAI from "openai";
+// import axios from "axios";
 
 // const openai = new OpenAI({
 //   apiKey:
-//
 //   dangerouslyAllowBrowser: true,
 // });
+
+// const LOCAL_HOST = "http://localhost:3000";
 
 function Scraper() {
   //   const [scrapedData, setScrapedData] = useState({ title: "", prompts: [], responses: [] });
@@ -52,13 +54,24 @@ function Scraper() {
     //       },
     //       {
     //         role: "user",
-    //         content: `Based on the context below, create the context framework about what you can identify about me, my needs, the items that I need most clarification with, my style of questioning, and my values to improve future LLM queries?\n ${context}`,
+    //         content: `Based on the context below, create a structured context framework about what you can identify about me, my needs, the items that I need most clarification with, my style of questioning, and my values to improve future LLM queries?\n ${context}`,
     //       },
     //     ],
     //     max_tokens: 400,
     //     temperature: 1.3,
     //   })
-    //   .then((response) => console.log(response));
+    //   .then((response: any) => {
+    //     console.log(response.choices[0].message.content);
+    //     // axios
+    //     //   .post(`${LOCAL_HOST}/post_context?user={user_id}&url={url}&context={context}`)
+    //     //   .then((response) => {
+    //     //     console.log(response);
+    //     //   })
+    //     //   .catch((error) => {
+    //     //     console.log(error);
+    //     //   });
+    //   });
+
     console.log(context);
   };
   return (

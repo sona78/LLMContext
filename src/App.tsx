@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Scraper from "./scraper";
+import Dropper from "./dropper";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -19,6 +20,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <Scraper />
+      <Dropper />
       <div className="card">
         <p>Login here</p>
         <button onClick={() => setCount((count) => count + 1)}>Login {count}</button>
