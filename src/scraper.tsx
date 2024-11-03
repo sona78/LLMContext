@@ -35,38 +35,19 @@ function Scraper() {
   //   setCurrentPages((prevPages) => [...prevPages, { title, logo }]);
   // };
 
-  const mixArrays = (arr1: any[], arr2: any[]) => {
-    arr1 = labelArray(arr1, true);
-    arr2 = labelArray(arr2, false);
-    const result = [];
-    while (arr1.length > 0 && arr2.length > 0) {
-      result.push(arr1.shift(), arr2.shift());
-    }
-    result.push(...arr1, ...arr2);
-    return result;
-  };
-
-  const labelArray = (arr: any[], isPrompt: boolean) => {
-    if (isPrompt) {
-      return arr.map((item) => `Prompt: ${item}`);
-    } else {
-      return arr.map((item) => `Response: ${item}`);
-    }
-  };
-
   const handleScrape = () => {
     chrome.runtime.sendMessage("scrape", (response: any) => {
       const scrapings = response.data[0].result;
       console.log(response.data);
       console.log(response.data[0].result);
-      if (scrapings && (scrapings.prompts?.length > 0 || scrapings.responses?.length > 0)) {
-        const context = mixArrays(scrapings.prompts, scrapings.responses).join(" ");
-        handleContextParsing(context);
+      if (scrapings && scrapings.textList?.length > 0) {
+        const context = scrapings.textList.join("\n\n ");
+        handleContextParsing(context, scrapings.url);
       }
     });
   };
 
-  const handleContextParsing = async (context: string) => {
+  const handleContextParsing = async (context: string, url: string) => {
     openai.chat.completions
       .create({
         model: "gpt-3.5-turbo-0125",
@@ -86,8 +67,9 @@ function Scraper() {
       })
       .then((response: any) => {
         console.log(response.choices[0].message.content);
+        const user_id = 1;
         axios
-          .post(`${LOCAL_HOST}/post_context?user={user_id}&url={url}&context={context}`)
+          .post(`${LOCAL_HOST}/post_context?user=${user_id}&url=${url}&context=${context}`)
           .then((response) => {
             console.log(response);
           })

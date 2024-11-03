@@ -42,7 +42,8 @@ const Prompt: React.FC = () => {
     }
   };
 
-  const handleDrop = (context: string) => {
+  const handleDrop = (context: any) => {
+    context = context.join(" ");
     chrome.runtime.sendMessage(`context: ${context}`, (response: any) => {
       console.log(response);
     });
